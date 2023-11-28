@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_28_132025) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_28_132029) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -22,6 +22,39 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_132025) do
     t.date "date_begin"
     t.date "date_end"
     t.string "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_likes_on_activity_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
+  end
+
+  create_table "preferences", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "theme_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["theme_id"], name: "index_preferences_on_theme_id"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
+  create_table "theme_activities", force: :cascade do |t|
+    t.bigint "theme_id", null: false
+    t.bigint "activity_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["activity_id"], name: "index_theme_activities_on_activity_id"
+    t.index ["theme_id"], name: "index_theme_activities_on_theme_id"
+  end
+
+  create_table "themes", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,4 +71,10 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_28_132025) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "activities"
+  add_foreign_key "likes", "users"
+  add_foreign_key "preferences", "themes"
+  add_foreign_key "preferences", "users"
+  add_foreign_key "theme_activities", "activities"
+  add_foreign_key "theme_activities", "themes"
 end
