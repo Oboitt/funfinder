@@ -1,0 +1,42 @@
+<div class="info-window">
+  <h2 class="info-window-title"><%= activity.name %></h2>
+  <p class="info-window-address"><%= activity.address %></p>
+  <!-- Ajoutez d'autres informations si nécessaire -->
+  <a href="/activities/<%= activity.id %>" class="btn btn-primary">Voir les détails</a>
+</div>
+<style>
+  .info-window {
+    max-width: 200px;
+    padding: 10px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .info-window-title {
+    margin-bottom: 5px;
+    color: #333;
+  }
+
+  .info-window-address {
+    color: #777;
+  }
+
+  .btn {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid #3498db;
+    color: #fff;
+    background-color: #3498db;
+    border-radius: 3px;
+  }
+
+  .btn:hover {
+    background-color: #2980b9;
+    border-color: #2980b9;
+  }
+</style>
