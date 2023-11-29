@@ -71,6 +71,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_29_094211) do
     t.string "first_name"
     t.string "last_name"
     t.integer "age"
+    t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
