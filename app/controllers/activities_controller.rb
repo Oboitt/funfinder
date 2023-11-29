@@ -8,4 +8,8 @@ class ActivitiesController < ApplicationController
   def show
     @activity = Activity.find(params[:id])
   end
+
+  def activity_params
+    params.require(:activity).permit(:title, :body, :photo)
+  end
 end

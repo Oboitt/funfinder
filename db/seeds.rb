@@ -56,7 +56,7 @@ activity_data.each do |data|
     date_end: data[:date_end],
     website: data[:website]
   )
-  Activity.photo.attach(io: photo, filename: data[:photo], content_type: "#{File.extname(data[:photo])}")
+  activity.photo.attach(io: photo, filename: data[:photo], content_type: "#{File.extname(data[:photo])}")
 end
 
 puts 'Finished!'
