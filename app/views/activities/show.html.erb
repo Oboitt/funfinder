@@ -1,22 +1,31 @@
-
 <div class="container">
-  <h1><%= @activity.name  %><h1>
-  <h2><%= @activity.brand %></h2>
-  <div class="d-flex justify-content-center rounded-5">
-    <% if @activity.photo.attached? %>
-      <%= cl_image_tag @activity.photo.key,  crop: :fill, class: "img-activity" %>
-    <% else %>
-      <img src="" alt="No image">
-    <% end %>
+  <div class="text-center">
+    <h1 style="color: #FA8460;"><%= @activity.name  %></h1>
+    <h2><%= @activity.brand %></h2>
+    <div class="d-flex justify-content-center rounded-5">
+      <% if @activity.photo.attached? %>
+        <%= cl_image_tag @activity.photo.key,  crop: :fill, class: "img-activity" %>
+      <% else %>
+        <img src="" alt="No image" style="max-width: 100%; max-height: 200px;">
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-between">
+    <h3 class="description_title"> Adresse: </h3>
+    <h3><%= @activity.address %></h3>
+    <h3 class="description_title"> Date: </h3>
+    <h3><%= @activity.date_begin.to_date.strftime('%d-%b-%Y')%> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h3>
+    </div>
+    <h3 class="description_title">Description : </h3>
+    <p><%= @activity.content %></p>
+
+<div class="d-grip gap-2 col-6 mx-auto justify-content-center">
+  <div>
+    <%= link_to "Ajouter au favoris", @activity.website, class: "btn btn-primary " %>
   </div>
-
-  <%# <h3 class="theme"><%= @activity.theme %></h3>
-  <h3><%= @activity.address %> - <%= @activity.date_begin.to_date.strftime('%d-%b-%Y')%><%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h3>
-  <h3 class="description_title">Description : </h3>
-  <p><%= @activity.content %></p>
-
-  <div class="d-flex justify-content-center">
-    <%# <%= link_to "Ajouter aux Favoris", profile_path, class: "btn btn-primary" %>
-    <%= link_to "Site Web", @activity.website, class: "btn btn-white" %>
+  <div>
+    <%= link_to "Site Web", @activity.website, class: "btn btn-outline-primary mt-3" %>
+  </div>
+</div>
+    </div>
   </div>
 </div>
