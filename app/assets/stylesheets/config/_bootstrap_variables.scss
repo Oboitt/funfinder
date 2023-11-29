@@ -19,8 +19,33 @@ $danger:     $red;
 $warning:    $orange;
 
 // Buttons & inputs' radius
-$border-radius:    2px;
-$border-radius-lg: 2px;
-$border-radius-sm: 2px;
+$border-radius:    1px;
+$border-radius-lg: 1px;
+$border-radius-sm: 1px;
 
 // Override other variables below!
+// Vos modifications personnalisées
+$primary: #ff6600; // Nouvelle couleur primaire
+
+// Surcharge de la classe btn-primary
+.btn-primary {
+  background-color: $primary;
+  border-color: $primary;
+}
+
+.btn-primary:hover {
+  background-color: darken($primary, 10%);
+  border-color: darken($primary, 10%);
+}
+
+.btn-outline-primary{
+  color: black;
+  background-color: white;
+  border: 1px solid #ff6600;
+}
+
+.btn-outline-primary{
+  color: white;
+  background-color: #ff6600;
+  border-color: #ff6600;
+}
