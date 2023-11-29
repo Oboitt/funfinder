@@ -32,4 +32,8 @@ class ActivitiesController < ApplicationController
   def set_activity
     @activity = Activity.find(params[:id])
   end
+
+  def activity_params
+    params.require(:activity).permit(:title, :body, :photo)
+  end
 end
