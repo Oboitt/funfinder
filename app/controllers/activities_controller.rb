@@ -15,8 +15,8 @@ class ActivitiesController < ApplicationController
   end
 
   def show
-    @theme_activities = ThemeActivity.where(activity_id: @activity.id)
-    @likes = Like.where(activity_id: @activity.id)
+    # @theme_activities = ThemeActivity.where(activity_id: @activity.id)
+    # @likes = Like.where(activity_id: @activity.id)
   end
 
   # def create
