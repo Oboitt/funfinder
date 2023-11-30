@@ -1,15 +1,32 @@
-.container  {
-background-color: white;
-object-fit: cover;
-text-align: center;
-justify-content: center;
-width: 430px;
-height: 932px;
-position: relative;
-
-  .img-activity {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+p {
+  font-size: 10px;
+  margin-top: 10px;
 }
+h5 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+.container{
+  background-color: white;
+  object-fit: cover;
+  text-align: center;
+  justify-content: center;
+
+  .container-index{
+    background-color: white;
+    object-fit: cover;
+    text-align: center;
+    justify-content: center;
+    width: 430px;
+    height: 932px;
+    position: relative;
+
+    .img-activity {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+  }
+
 }
