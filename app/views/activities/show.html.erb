@@ -1,10 +1,12 @@
 <div class="container">
   <div class="flogo">
+   <a href="">Back</a>
     <%=  image_tag "Funfinder_logo.png" %>
+    <a href="">Favoris</a>
   </div>
-  <div>
-    <h1 style="color: #FA8460;"><%= @activity.name  %></h1>
-    <h2><%= @activity.brand %></h2>
+    <div>
+      <h1 style="color: #FA8460;"><%= @activity.name  %></h1>
+      <h2><%= @activity.brand %></h2>
     <div class="d-flex justify-content-center rounded-5">
       <% if @activity.photo.attached? %>
         <%= cl_image_tag @activity.photo.key,  crop: :fill, class: "img-activity" %>
@@ -13,12 +15,16 @@
       <% end %>
     </div>
     <div class="d-flex justify-content-betwen">
-    <p class="description_title"> Adresse: </p>
-    <p><%= @activity.address %></p>
-    <p class="description_title"> Date: </p>
-    <p><%= @activity.date_begin.to_date.strftime('%d-%b-%Y')%> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></p>
-    <p class="description_title">Description : </p>
+      <div>
+        <h5 class="description_title"> Adresse:</h5>
+        <h5><%= @activity.address %></h5>
     </div>
+      <div>
+        <h5 class="description_title"> Date: </h5>
+        <h5><%= @activity.date_begin.to_date.strftime('%d-%b-%Y')%> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h5>
+    </div>
+    </div>
+    <h5 class="description_title">Description : </h5>
     <p><%= @activity.content %></p>
 <div class="d-grip gap-2 col-6 mx-auto justify-content-center">
   <div>
