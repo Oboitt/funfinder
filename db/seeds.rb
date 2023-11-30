@@ -8,6 +8,9 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 require "open-uri"
+
+require "json"
+
 Activity.destroy_all
 User.destroy_all
 puts 'Creating users...'
@@ -57,6 +60,20 @@ activity_data.each do |data|
     website: data[:website]
   )
   activity.photo.attach(io: photo, filename: data[:photo], content_type: "#{File.extname(data[:photo])}")
+end
+
+
+
+
+
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=5000&type=restaurant&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |restaurant|
+  p "creating #{restaurant["name"]}"
+  Activity.create!(name: restaurant["name"], address: restaurant["vicinity"])
 end
 
 puts 'Finished!'
