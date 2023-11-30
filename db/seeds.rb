@@ -63,17 +63,94 @@ activity_data.each do |data|
 end
 
 
-
-
-
-
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=5000&type=restaurant&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=museum&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
-data["results"].each do |restaurant|
-  p "creating #{restaurant["name"]}"
-  Activity.create!(name: restaurant["name"], address: restaurant["vicinity"])
+data["results"].each do |museum|
+  p "creating #{museum["name"]}"
+  if museum['photos']
+
+    photo_reference = museum["photos"].first["photo_reference"]
+    activity = Activity.new(name: museum["name"], address: museum["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
+end
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=gym&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |gym|
+  p "creating #{gym["name"]}"
+  if gym['photos']
+
+    photo_reference = gym["photos"].first["photo_reference"]
+    activity = Activity.new(name: gym["name"], address: gym["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
+end
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=art_gallery&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |art_gallery|
+  p "creating #{art_gallery["name"]}"
+  if art_gallery['photos']
+
+    photo_reference = art_gallery["photos"].first["photo_reference"]
+    activity = Activity.new(name: art_gallery["name"], address: art_gallery["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
+end
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=night_club&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |night_club|
+  p "creating #{night_club["name"]}"
+  if night_club['photos']
+
+    photo_reference = night_club["photos"].first["photo_reference"]
+    activity = Activity.new(name: night_club["name"], address: night_club["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
+end
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=movie_theater&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |movie_theater|
+  p "creating #{movie_theater["name"]}"
+  if movie_theater['photos']
+
+    photo_reference = movie_theater["photos"].first["photo_reference"]
+    activity = Activity.new(name: movie_theater["name"], address: movie_theater["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
 end
 
 puts 'Finished!'
