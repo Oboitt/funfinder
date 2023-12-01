@@ -1,9 +1,6 @@
 <div class="container">
-  <div class="flogo">
    <a href="">Back</a>
-    <%=  image_tag "Funfinder_logo.png" %>
     <a href="">Favoris</a>
-  </div>
     <div>
       <h1 style="color: #FA8460;"><%= @activity.name  %></h1>
       <h2><%= @activity.brand %></h2>
@@ -16,19 +13,19 @@
     </div>
     <div class="d-flex justify-content-betwen">
       <div>
-        <h5 class="description_title"> Adresse:</h5>
-        <h5><%= @activity.address %></h5>
+        <h5 class="description_title"> Adresse</h5>
+        <p><%= @activity.address %></p>
     </div>
       <div>
-        <h5 class="description_title"> Date: </h5>
+        <h5 class="description_title"> Date</h5>
         <% if @activity.date_begin?%>
-          <h5><%= @activity.date_begin.to_date.strftime('%d-%b-%Y') %> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h5>
+          <p><%= @activity.date_begin.to_date.strftime('%d-%b-%Y') %> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></p>
         <% else %>
-          <h5><%= @activity.date_begin = Date.today %></h5>
+          <p><%= @activity.date_begin = Date.today %></p>
         <% end %>
     </div>
     </div>
-    <h5 class="description_title">Description : </h5>
+    <h5 class="description_title">Description</h5>
     <p><%= @activity.content %></p>
 <div class="d-grip gap-2 col-6 mx-auto justify-content-center">
   <div>
