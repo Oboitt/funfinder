@@ -1,12 +1,11 @@
-<div class="row justify-content-center">
+
+<div class="row" style="justify-content: center;">
   <div class="col-sm-8 my-3">
-    <%= form_with url: activities_path, method: :get, class: "d-flex" do |f| %>
-      <%= text_field_tag :date_begin,
-          params[:date_begin],
-          class: "form-control",
-          placeholder: "Type a keyword"
-      %>
-      <%= f.submit "Search", class: "btn btn-primary" %>
-    <% end %>
+    <form action="<%= activities_path %>" method="get" class="d-flex">
+      <input type="text" name="date_begin" value="<%= params[:date_begin] %>"
+             data-controller="datepicker"
+             class="form-control" placeholder="Choisissez une date !">
+      <input type="submit" value="C'est parti !" class="btn btn-primary">
+    </form>
   </div>
 </div>

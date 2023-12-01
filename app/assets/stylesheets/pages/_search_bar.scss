@@ -1,0 +1,25 @@
+.search-bar {
+  background-color: white;
+  padding: 0.5em;
+  margin: 1em;
+  color: #FA8460;
+
+  input {
+    width: 100%;
+    padding: 0.5em;
+    margin: 0.5em 0;
+    border: 1px solid #FA8460;
+  }
+
+  button {
+    background-color: #FA8460;
+    color: white;
+    padding: 0.5em 1em;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: darken(#FA8460, 10%);
+    }
+  }
+}
