@@ -21,7 +21,11 @@
     </div>
       <div>
         <h5 class="description_title"> Date: </h5>
-        <h5><%= @activity.date_begin.to_date.strftime('%d-%b-%Y')%> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h5>
+        <% if @activity.date_begin?%>
+          <h5><%= @activity.date_begin.to_date.strftime('%d-%b-%Y') %> - <%= @activity.date_end.to_date.strftime('%d-%b-%Y') %></h5>
+        <% else %>
+          <h5><%= @activity.date_begin = Date.today %></h5>
+        <% end %>
     </div>
     </div>
     <h5 class="description_title">Description : </h5>
