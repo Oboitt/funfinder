@@ -1,0 +1,31 @@
+
+// Footer styles
+footer {
+  background-color: #000000; // Noir
+  color: white;
+  padding: 1em;
+
+  // Liste des liens dans le footer
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between; // Alignement horizontal
+
+    // Styles pour chaque lien
+    li {
+      a {
+        text-decoration: none;
+        color: white;
+
+        &:hover {
+          color: #FA8460;
+        }
+      }
+    }
+  }
+}
+.yield {
+  min-height: calc(100vh - 100px - 100px);
+}

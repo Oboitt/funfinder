@@ -1,85 +1,88 @@
 <div class="container">
-<div class="thecontainer">
-  <div class="Flogo">
-  <%=  image_tag "Funfinder_logo.png" %>
-  </div>
-  <div class="form_date">
-    <%= render 'form_date', activity: @activity %>
-  </div>
-
-  <div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  <div class="thecontainer">
+    <div class="Flogo">
+    <%=  image_tag "Funfinder_logo.png" %>
     </div>
-    <div class="carousel-inner">
-      <!-- Carousel Item 1 -->
-      <div class="carousel-item active">
-        <%= cl_image_tag Activity.first.photo.key, class: "d-block w-100", alt: Activity.first.name %>
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container bg-white">
-            <h5><%=  Activity.first.name %></h5>
-            <p><%= Activity.first.brand %></p>
-            </div>
-        </div>
-      </div>
-      <!-- Carousel Item 2 -->
-      <div class="carousel-item">
-        <%= cl_image_tag Activity.second.photo.key, class: "d-block w-100", alt: Activity.second.name %>
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container bg-white">
-            <h5><%=  Activity.second.name %></h5>
-            <p><%=  Activity.second.brand %></p>
-            </div>
-        </div>
-      </div>
+    <div class="form_date search-bar">
+      <%= render 'form_date', activity: @activity %>
+    </div>
 
-      <!-- Carousel Item 3 -->
-      <div class="carousel-item">
-        <%= cl_image_tag Activity.third.photo.key, class: "d-block w-100", alt: Activity.third.name %>
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container bg-white">
-            <h5><%=  Activity.third.name %></h5>
-            <p><%=  Activity.third.brand %></p>
-            </div>
-        </div>
+    <div id="carouselExampleIndicators" class="carousel slide">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
       </div>
+      <div class="carousel-inner">
+        <!-- Carousel Item 1 -->
+        <div class="carousel-item active">
+          <%= cl_image_tag Activity.first.photo.key, class: "d-block w-100 img", alt: Activity.first.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="overlay">
+              <h5><%=  Activity.first.name %></h5>
+              <p><%= Activity.first.brand %></p>
+              </div>
+          </div>
+        </div>
+        <!-- Carousel Item 2 -->
+        <div class="carousel-item">
+          <%= cl_image_tag Activity.second.photo.key, class: "d-block w-100 img", alt: Activity.second.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="overlay">
+              <h5><%=  Activity.second.name %></h5>
+              <p><%=  Activity.second.brand %></p>
+              </div>
+          </div>
+        </div>
 
-      <!-- Carousel Item 4 -->
-      <div class="carousel-item">
-        <%= cl_image_tag Activity.fourth.photo.key, class: "d-block w-100", alt: Activity.fourth.name %>
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container bg-white">
-            <h5><%=  Activity.fourth.name %></h5>
-            <p><%=  Activity.fourth.brand %></p>
+        <!-- Carousel Item 3 -->
+        <div class="carousel-item">
+          <%= cl_image_tag Activity.third.photo.key, class: "d-block w-100 img", alt: Activity.third.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="overlay">
+              <h5><%=  Activity.third.name %></h5>
+              <p><%=  Activity.third.brand %></p>
+              </div>
+          </div>
+        </div>
+
+        <!-- Carousel Item 4 -->
+        <div class="carousel-item">
+          <%= cl_image_tag Activity.fourth.photo.key, class: "d-block w-100 img", alt: Activity.fourth.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="overlay">
+              <h5><%=  Activity.fourth.name %></h5>
+              <p><%=  Activity.fourth.brand %></p>
+            </div>
+          </div>
+        </div>
+        <!-- Carousel Item 5 -->
+        <div class="carousel-item">
+          <%= cl_image_tag Activity.fifth.photo.key, class: "d-block w-100 img", alt: Activity.fifth.name %>
+          <div class="carousel-caption d-none d-md-block">
+            <div class="overlay">
+              <h5><%=  Activity.fifth.name %></h5>
+              <p><%=  Activity.fifth.brand %></p>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Carousel Item 5 -->
-      <div class="carousel-item">
-        <%= cl_image_tag Activity.fifth.photo.key, class: "d-block w-100", alt: Activity.fifth.name %>
-        <div class="carousel-caption d-none d-md-block">
-          <div class="container bg-white">
-            <h5><%=  Activity.fifth.name %></h5>
-            <p><%=  Activity.fifth.brand %></p>
-          </div>
-        </div>
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <div class="amuser">
+      <h2>Amusez vous en 3 étapes :</h2>
+      <h3><i class="fas fa-calendar-alt"></i> Rentrez votre date</h3>
+      <h3><i class="fas fa-puzzle-piece"></i> Choisissez votre thème</h3>
+      <h3><i class="fas fa-map-marker-alt"></i> Découvrez les activités dans le coin</h3>
+    </div>
   </div>
-  <div class="category_card">
-    <!--HTML "amusez vous en 3 étapes"-->
-  </div>
-</div>
 </div>
