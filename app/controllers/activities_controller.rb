@@ -3,16 +3,27 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
 
   def index
-    @activities = Activity.all
 
-    @markers = @activities.geocoded.map do |activity|
-      {
-        lat: activity.latitude,
-        lng: activity.longitude,
-        info_window_html: render_to_string(partial: "info_window", locals: {activity: activity}),
-        marker_html: render_to_string(partial: "marker", locals: { activity: activity})
-      }
+
+    if params[:date_begin].present?
+      @activities = Activity.where('date_begin >= ?', params[:date_begin].to_date)
+    else
+      @activities = Activity.all
     end
+
+
+
+
+
+
+      @markers = @activities.geocoded.map do |activity|
+        {
+          lat: activity.latitude,
+          lng: activity.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: { activity: activity }),
+          marker_html: render_to_string(partial: "marker", locals: { activity: activity })
+        }
+      end
   end
 
   def show
