@@ -1,51 +1,53 @@
-
-<div class="text-center">
-  <h1 style="color: #FA8460;">Carte</h1>
-</div>
-
-<div style="width: 100%; height: 600px;"
-  data-controller="map"
-  data-map-markers-value="<%= @markers.to_json %>"
-  data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-  <div id="carouselExampleIndicators" class="carousel slide">
-  <div class="carousel-indicators">
-    <% @activities.each_with_index do |activity, index| %>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=index%>" class="<%= "active" if index.zero? %>" aria-current="true" aria-label="Slide 1"></button>
-    <% end %>
-    <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> %>
+<div class="container bg-white">
+  <div class="back">
+  <a href="/"><i class="fa-solid fa-rotate-left"></i></a>
   </div>
-  <div class="carousel-inner">
-    <!-- Carousel Item 1 -->
+  <div class="mapslide">
+    <h1>Les Activités</h1>
+  </div>
+  <div style="width: 100%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+    <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <% @activities.each_with_index do |activity, index| %>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=index%>" class="<%= "active" if index.zero? %>" aria-current="true" aria-label="Slide 1"></button>
+      <% end %>
+      <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> %>
+    </div>
+    <div class="carousel-inner">
+      <!-- Carousel Item 1 -->
 
 
-    <% @activities.each_with_index do |activity, index| %>
-      <div class="carousel-item <%= "active" if index.zero? %>">
-        <% if activity.photo.attached? %>
-          <%= cl_image_tag activity.photo.key, class: "d-block w-100", alt: Activity.second.name %>
-        <% else %>
-          <img src="https://tse2.mm.bing.net/th?id=OIP.tt2Zgybqej5N0BTWJL4jGwHaFj&pid=Api&P=0&h=180" alt="">
-        <% end %>
-        <div class="carousel-caption d-none d-md-block">
-            <h5><%  activity.name %></h5>
-            <p><%  activity.brand %></p>
+      <% @activities.each_with_index do |activity, index| %>
+        <div class="carousel-item <%= "active" if index.zero? %>">
+          <% if activity.photo.attached? %>
+            <%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %>
+          <% else %>
+            <img src="/app/assets/images/funfinder.jpg" alt="Logo">
+          <% end %>
         </div>
-      </div>
-    <% end %>
-    <!-- Carousel Item 2 -->
+          <div class="carousel-caption d-none d-md-block">
+             <%# <div class="overlay">
+              <h5><%= activity.name </h5>
+              <%# <p><%= activity.brand </p>
+              <%# <p><%= activity.date_begin </p>
+            <%# </div> %>
+          </div>
+      <% end %>
+      <!-- Carousel Item 2 -->
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+    </div>
   </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-  <div class="category_card">
-    <!--HTML "amusez vous en 3 étapes"-->
-  </div>
-</div>
 </div>
