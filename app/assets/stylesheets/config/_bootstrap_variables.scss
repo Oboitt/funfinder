@@ -31,21 +31,26 @@ $primary: #FA8460; // Nouvelle couleur primaire
   background-color: $primary;
   border-color: $primary;
   color: white !important;
+  border-radius: 7px !important;
 }
 
 .btn-primary:hover {
   background-color: darken($primary, 10%);
   border-color: darken($primary, 10%);
+  border-radius: 7px !important;
 }
 
 .btn-outline-primary{
+  margin-top: 7px;
   color: rgb(0, 0, 0);
   background-color: white;
   border: 1px solid #FA8460;
+  border-radius: 7px !important;
 }
 
 .btn-outline-primary{
   color: white;
   background-color: #FA8460;
   border-color: #FA8460;
+  border-radius: 7px !important;
 }
