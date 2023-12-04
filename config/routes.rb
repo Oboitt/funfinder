@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :activities, only: [:index, :show, :create, :destroy] do
-
+    resources :likes, only: [:create]
   end
+  resources :likes, only: [:destroy, :index]
 end
