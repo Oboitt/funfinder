@@ -62,7 +62,7 @@ activity_data.each do |data|
 end
 
 
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=museum&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=museum&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
@@ -80,7 +80,7 @@ data["results"].each do |museum|
   end
 end
 
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=gym&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=gym&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
@@ -98,7 +98,7 @@ data["results"].each do |gym|
   end
 end
 
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=art_gallery&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=art_gallery&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
@@ -116,7 +116,7 @@ data["results"].each do |art_gallery|
   end
 end
 
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=night_club&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=night_club&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
@@ -134,7 +134,7 @@ data["results"].each do |night_club|
   end
 end
 
-url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=70000&type=movie_theater&key=#{ENV['GOOGLE_API_KEY']}"
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=movie_theater&key=#{ENV['GOOGLE_API_KEY']}"
 data_serialized = URI.open(url).read
 data = JSON.parse(data_serialized)
 
@@ -144,6 +144,24 @@ data["results"].each do |movie_theater|
 
     photo_reference = movie_theater["photos"].first["photo_reference"]
     activity = Activity.new(name: movie_theater["name"], address: movie_theater["vicinity"])
+    photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
+    p photo_url
+    file = URI.open(photo_url)
+    activity.photo.attach(io: file, filename: "nes.png", content_type: "image/png")
+    activity.save
+  end
+end
+
+url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=50.6292,3.0573&radius=10000&type=amusement_park&key=#{ENV['GOOGLE_API_KEY']}"
+data_serialized = URI.open(url).read
+data = JSON.parse(data_serialized)
+
+data["results"].each do |amusement_park|
+  p "creating #{amusement_park["name"]}"
+  if amusement_park['photos']
+
+    photo_reference = amusement_park["photos"].first["photo_reference"]
+    activity = Activity.new(name: amusement_park["name"], address: amusement_park["vicinity"])
     photo_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=#{photo_reference}&key=#{ENV['GOOGLE_API_KEY']}"
     p photo_url
     file = URI.open(photo_url)
