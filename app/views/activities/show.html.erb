@@ -32,8 +32,8 @@
     <h5>Description</h5>
     <p><%= @activity.content %></p>
   </div>
-    <div class=" bouton d-flex justify-content-center flex-column rounded-5">
-        <%= link_to "Ajouter au favoris", @activity.website, class: "btn btn-primary " %>
-        <%= link_to "Site Web", @activity.website, class: "btn btn-outline-primary " %>
+    <div class="d-flex justify-content-center flex-column rounded-5">
+        <%= link_to "Ajouter au favoris", activity_likes_path(@activity), data:{turbo_method: :post}, class: "btn btn-primary " %>
+        <%= link_to "Site Web", @activity.website, class: "btn btn-outline-primary" %>
   </div>
 </div>
