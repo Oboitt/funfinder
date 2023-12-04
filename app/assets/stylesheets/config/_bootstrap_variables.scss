@@ -24,27 +24,33 @@ $border-radius-sm: 1px;
 
 // Override other variables below!
 // Vos modifications personnalisées
-$primary: #ff6600; // Nouvelle couleur primaire
+$primary: #FA8460; // Nouvelle couleur primaire
 
 // Surcharge de la classe btn-primary
 .btn-primary {
   background-color: $primary;
   border-color: $primary;
+  color: white !important;
+  border-radius: 7px !important;
 }
 
 .btn-primary:hover {
   background-color: darken($primary, 10%);
   border-color: darken($primary, 10%);
+  border-radius: 7px !important;
 }
 
 .btn-outline-primary{
-  color: black;
+  margin-top: 7px;
+  color: rgb(0, 0, 0);
   background-color: white;
-  border: 1px solid #ff6600;
+  border: 1px solid #FA8460;
+  border-radius: 7px !important;
 }
 
 .btn-outline-primary{
   color: white;
-  background-color: #ff6600;
-  border-color: #ff6600;
+  background-color: #FA8460;
+  border-color: #FA8460;
+  border-radius: 7px !important;
 }

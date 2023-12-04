@@ -1,38 +1,55 @@
 .show{
   h1 {
   margin: 20px;
-  color: #FF5B22;
+  color: #FA8460;
   text-align: center;
   font-size: 30px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+
   }
-  h2{
-    color: #FF5B22;
-    text-align: center;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    }
+  h2 {
+  color: #000000;
+  text-align: center !important;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+
+  }
+  h4 {
+  color: #ffffff;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  text-shadow: 1px 0px 7px black;
+  }
 
   h5 {
-    color: #000;
-    text-align: center;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 16px;
+  color: #000;
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
   }
 
   p {
-  margin-top: 20px;
+  margin-top: 10px;
   color: #000;
   font-size: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: 16px;
   text-align: center;
+  }
+  .img-activity{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 7px;
   }
 }

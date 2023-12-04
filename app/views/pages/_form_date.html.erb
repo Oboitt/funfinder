@@ -1,10 +1,14 @@
-
-<div class="row" style="justify-content: center;">
+<div class="row" style="justify-content: center ;">
   <div class="col-sm-8 my-3">
     <form action="<%= themes_path %>" method="get" class="d-flex">
       <input type="text" name="date_begin" value="<%= Date.today.to_s %>"
              data-controller="datepicker"
              class="form-control" placeholder="Choisissez une date !">
+     <input type="text" name="address"
+             input_html: {data: {address_autocomplete_target: "address"}},
+             wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}},
+             class="form-control" placeholder="Choisissez un lieu !">
+      </div>
       <input type="submit" value="C'est parti !" class="btn btn-primary">
     </form>
   </div>

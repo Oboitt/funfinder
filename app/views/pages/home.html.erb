@@ -1,13 +1,15 @@
 <div class="container">
   <div class="thecontainer">
     <div class="Flogo">
-    <%=  image_tag "Funfinder_logo.png" %>
+    <%=  image_tag "funfinder.jpg" %>
     </div>
-    <div class="form_date search-bar">
+    <div class="form_date search-bar ">
       <%= render 'form_date', activity: @activity %>
     </div>
+    <h3>Les dernière activités ajouté :</h3>
 
-    <div id="carouselExampleIndicators" class="carousel slide">
+
+    <div id="carouselExampleIndicators" class="carousel-slide">
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -21,7 +23,7 @@
           <%= cl_image_tag Activity.first.photo.key, class: "d-block w-100 img", alt: Activity.first.name %>
           <div class="carousel-caption d-none d-md-block">
             <div class="overlay">
-              <h5><%=  Activity.first.name %></h5>
+              <h4><%=  Activity.first.name %></h4>
               <p><%= Activity.first.brand %></p>
               </div>
           </div>
@@ -31,7 +33,7 @@
           <%= cl_image_tag Activity.second.photo.key, class: "d-block w-100 img", alt: Activity.second.name %>
           <div class="carousel-caption d-none d-md-block">
             <div class="overlay">
-              <h5><%=  Activity.second.name %></h5>
+              <h4><%=  Activity.second.name %></h4>
               <p><%=  Activity.second.brand %></p>
               </div>
           </div>
@@ -42,7 +44,7 @@
           <%= cl_image_tag Activity.third.photo.key, class: "d-block w-100 img", alt: Activity.third.name %>
           <div class="carousel-caption d-none d-md-block">
             <div class="overlay">
-              <h5><%=  Activity.third.name %></h5>
+              <h4><%=  Activity.third.name %></h4>
               <p><%=  Activity.third.brand %></p>
               </div>
           </div>
@@ -53,7 +55,7 @@
           <%= cl_image_tag Activity.fourth.photo.key, class: "d-block w-100 img", alt: Activity.fourth.name %>
           <div class="carousel-caption d-none d-md-block">
             <div class="overlay">
-              <h5><%=  Activity.fourth.name %></h5>
+              <h4><%=  Activity.fourth.name %></h4>
               <p><%=  Activity.fourth.brand %></p>
             </div>
           </div>
@@ -63,7 +65,7 @@
           <%= cl_image_tag Activity.fifth.photo.key, class: "d-block w-100 img", alt: Activity.fifth.name %>
           <div class="carousel-caption d-none d-md-block">
             <div class="overlay">
-              <h5><%=  Activity.fifth.name %></h5>
+              <h4><%=  Activity.fifth.name %></h4>
               <p><%=  Activity.fifth.brand %></p>
             </div>
           </div>
@@ -79,10 +81,11 @@
       </button>
     </div>
     <div class="amuser">
-      <h2>Amusez vous en 3 étapes :</h2>
-      <h3><i class="fas fa-calendar-alt"></i> Rentrez votre date</h3>
-      <h3><i class="fas fa-puzzle-piece"></i> Choisissez votre thème</h3>
-      <h3><i class="fas fa-map-marker-alt"></i> Découvrez les activités dans le coin</h3>
+      <h2>Amusez vous en 4 étapes :</h2>
+      <h3>🗓️Rentrez votre date</h3>
+      <h3>📍Rentrez votre lieu</h3>
+      <h3>🧩Choisissez votre thème</h3>
+      <h3>🧭Découvrez les activités dans le coin</h3>
     </div>
   </div>
 </div>
