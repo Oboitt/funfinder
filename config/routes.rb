@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'themes/index'
   devise_for :users
   root to: "pages#home"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -10,7 +11,10 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :activities, only: [:index, :show, :create, :destroy] do
+
+  resources :themes, only: [:index]
     resources :likes, only: [:create]
   end
   resources :likes, only: [:destroy, :index]
+
 end

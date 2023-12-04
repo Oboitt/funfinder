@@ -1,0 +1,16 @@
+<h1>Choisissez vos thèmes :</h1>
+
+<%= form_tag(activities_path, method: "get") do %>
+  <% @themes.each do |theme| %>
+    <label>
+      <%= check_box_tag "themes[]", theme.name, params[:themes].present? && params[:themes].include?(theme.id.to_s) %>
+      <%= theme.name %>
+    </label>
+  <% end %>
+
+  <input type="text" name="date_begin" id="" value=<%= params[:date_begin] %>>
+  <%= submit_tag "Filtrer" %>
+<% end %>
+
+
+<%= console %>

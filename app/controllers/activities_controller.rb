@@ -3,17 +3,17 @@ class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show]
 
   def index
-
+    @activities = Activity.all
 
     if params[:date_begin].present?
-      @activities = Activity.where('date_begin >= ?', params[:date_begin].to_date)
-    else
-      @activities = Activity.all
+      @activities = @activities.where('date_begin >= ?', params[:date_begin].to_date)
+
     end
 
 
-
-
+    if params[:themes].present?
+      @activities = @activities.where(category: params[:themes])
+    end
 
 
       @markers = @activities.geocoded.map do |activity|
