@@ -3,8 +3,8 @@ class LikesController < ApplicationController
 
 
     def index
-      @liked_activities = current_user.activities.where("date_end >= ?", Date.today)
-      @past_activites = current_user.activities.where("date_end < ?", Date.today)
+      @liked_activities = current_user.activities.where("date_end >= ?", Date.today).last(5)
+      @past_activites = current_user.activities.where("date_end < ?", Date.today).last(5)
     end
 
     def create
