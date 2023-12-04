@@ -4,7 +4,8 @@ footer {
   background-color: #000000; // Noir
   color: white;
   padding: 1em;
-  height: 100px;
+  height: 80px;
+
   // Liste des liens dans le footer
   ul {
     list-style: none;
@@ -27,5 +28,5 @@ footer {
   }
 }
 .yield {
-  min-height: calc(100vh - 100px);
+  min-height: calc(100vh - 80px);
 }
