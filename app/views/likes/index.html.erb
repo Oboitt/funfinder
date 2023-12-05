@@ -1,41 +1,53 @@
-<div class="container">
+<div class="thecontainer">
   <h1>Favoris</h1>
   <h2>Bonjour <b><%= current_user.first_name %></b>,</h2>
   <h2>Voici vos activités à venir</h2>
 
   <% if @liked_activities.present? %>
-    <%  @liked_activities.each do |like| %>
-      <div class="card-product">
-        <% if like.photo.attached? %>
-          <%= cl_image_tag like.photo.key,  crop: :fill %>
-        <% else %>
-          <img src="app/assets/images/funfinder.jpg" alt="No image" style="max-width: 100%; max-height: 200px;">
-        <% end %>
+  <% @liked_activities.each do |like| %>
+    <div class="card-product">
+      <% if like.photo.attached? %>
+        <%= cl_image_tag like.photo.key, crop: :fill %>
+      <% else %>
+        <img src="app/assets/images/funfinder.jpg" alt="No image" style="max-width: 100%; max-height: 200px;">
+      <% end %>
+
       <div class="card-product-infos">
-        <p><%= like.name %> - <%= like.date_begin %></p>
+        <div class="card-header">
+          <p><b><%= like.name %></b></p>
+          <a href="#" class="share-link">Partager</a>
+        </div>
+
+        <p><%= distance_of_time_in_words(Time.now, like.date_begin, include_seconds: true, about: false, locale: :fr) %> avant le début de l'évènement </p>
+
+        <div class="heart-icon"><i class="fa-solid fa-heart"></i></div>
       </div>
     </div>
-    <% end %>
-    <% else %>
-      <%= link_to "Choisissez votre première activité", activities_path %>
-    <% end %>
+  <% end %>
+<% else %>
+  <%= link_to "Choisissez votre première activité", activities_path %>
+<% end %>
 
-  <% if @past_activities.present? %>
-    <%  @past_activities.each do |past| %>
-      <div class="card-product">
-        <% if past.photo.attached? %>
-          <%= cl_image_tag past.photo.key,  crop: :fill %>
-        <% else %>
-          <img src="app/assets/images/funfinder.jpg" alt="No image" style="max-width: 100%; max-height: 200px;">
-        <% end %>
+<% if @past_activities.present? %>
+  <% @past_activities.each do |past| %>
+    <div class="card-product">
+      <% if past.photo.attached? %>
+        <%= cl_image_tag past.photo.key, crop: :fill %>
+      <% else %>
+        <img src="app/assets/images/funfinder.jpg" alt="No image" style="max-width: 100%; max-height: 200px;">
+      <% end %>
+
       <div class="card-product-infos">
-        <p><%= past.name %> - <%= past.date_end %></p>
+        <div class="card-header">
+          <p><%= past.name %></p>
+          <a href="#" class="share-link">Partager</a>
+        </div>
+
+        <p><%= distance_of_time_in_words(Time.now, past.date_begin, include_seconds: true, about: false, locale: :fr) %> depuis l'évènement </p>
+
+        <div class="heart-icon"><i class="fa-solid fa-heart"></i></div>
       </div>
     </div>
-    <% end %>
-    <% else %>
-      <%= link_to "Vous n'avez pas encore d'activité passée", activities_path %>
-    <% end %>
-
-  <%= link_to 'Retour aux activités', activities_path %>
+  <% end %>
+<% end %>
 </div>

@@ -1,0 +1,16 @@
+fr:
+  datetime:
+    distance_in_words:
+      about_x_hours: "environ %{count} heures"
+      x_days:
+        one: "1 jour"
+        other: "%{count} jours"
+      x_hours:
+        one: "1 heure"
+        other: "%{count} heures"
+      x_minutes:
+        one: "1 minute"
+        other: "%{count} minutes"
+      x_seconds:
+        one: "1 seconde"
+        other: "%{count} secondes"
