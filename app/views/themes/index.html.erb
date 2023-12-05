@@ -1,4 +1,4 @@
-<h1>Choisissez vos thèmes :</h1>
+<!--<h1>Choisissez vos thèmes :</h1>
 
 <%= form_tag(activities_path, method: "get") do %>
   <% @themes.each do |theme| %>
@@ -13,4 +13,21 @@
 <% end %>
 
 
-<%= console %>
+<%= console %>-->
+
+<h1>Choisissez vos thèmes :</h1>
+
+<div class="page-themes">
+  <div class="theme-filter">
+    <% @themes.each do |theme| %>
+      <div class="theme-card" data-theme-id="<%= theme.id %>">
+        <%= image_tag theme.photo.url, alt: theme.name %>
+        <h3><%= theme.name %></h3>
+      </div>
+    <% end %>
+  </div>
+
+  <input type="hidden" name="selected_themes" id="selected_themes" value="">
+
+  <button class="validate-button">Valider</button>
+</div>
