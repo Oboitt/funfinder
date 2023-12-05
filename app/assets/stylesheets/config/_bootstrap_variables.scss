@@ -11,7 +11,7 @@ $font-size-base:         1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+$primary:    #FA8460;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
@@ -22,11 +22,6 @@ $border-radius:    1px;
 $border-radius-lg: 1px;
 $border-radius-sm: 1px;
 
-// Override other variables below!
-// Vos modifications personnalisées
-$primary: #FA8460; // Nouvelle couleur primaire
-
-// Surcharge de la classe btn-primary
 .btn-primary {
   background-color: $primary;
   border-color: $primary;
@@ -42,14 +37,14 @@ $primary: #FA8460; // Nouvelle couleur primaire
 
 .btn-outline-primary{
   margin-top: 7px;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   background-color: white;
   border: 1px solid #FA8460;
   border-radius: 7px !important;
 }
 
 .btn-outline-primary{
-  color: white;
+  color: white ;
   background-color: #FA8460;
   border-color: #FA8460;
   border-radius: 7px !important;
