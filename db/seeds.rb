@@ -65,19 +65,20 @@ end
 puts 'Creating themes...'
 
 theme_data = [
-  { name: "autour_de_moi", photo: "https://images.pexels.com/photos/1125272/pexels-photo-1125272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
-  { name: "gym", photo: "https://images.pexels.com/photos/221247/pexels-photo-221247.jpeg?auto=compress&cs=tinysrgb&w=800"},
-  { name: "art_gallery", photo: "https://images.pexels.com/photos/2261165/pexels-photo-2261165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
-  { name: "night_club", photo: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
-  { name: "movie_theater", photo: "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
-  { name: "amusement_park", photo: "https://images.pexels.com/photos/3810967/pexels-photo-3810967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
-  { name: "museum", photo: "https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
+  { name: "autour_de_moi", display_name: "Événements éphémères", photo: "https://images.pexels.com/photos/1125272/pexels-photo-1125272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+  { name: "gym", display_name: "Sport", photo: "https://images.pexels.com/photos/221247/pexels-photo-221247.jpeg?auto=compress&cs=tinysrgb&w=800"},
+  { name: "art_gallery", display_name: "Galerie d'art", photo: "https://images.pexels.com/photos/2261165/pexels-photo-2261165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+  { name: "night_club", display_name: "Faire la fête", photo: "https://images.pexels.com/photos/1763075/pexels-photo-1763075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+  { name: "movie_theater", display_name: "Cinéma", photo: "https://images.pexels.com/photos/33129/popcorn-movie-party-entertainment.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+  { name: "amusement_park", display_name: "Parcs de loisirs", photo: "https://images.pexels.com/photos/3810967/pexels-photo-3810967.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"},
+  { name: "museum", display_name: "Musée", photo: "https://images.pexels.com/photos/69903/pexels-photo-69903.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"}
 ]
 
 theme_data.each do |data|
   photo = URI.open(data[:photo])
   theme = Theme.create!(
-    name: data[:name]
+    name: data[:name],
+    display_name: data[:display_name]
   )
   theme.photo.attach(io: photo, filename: data[:photo], content_type: "#{File.extname(data[:photo])}")
 end
