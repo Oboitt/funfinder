@@ -2,17 +2,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3px;
+  padding: 0px;
 
   .theme-filter {
-    width: 100%;
+    width: 400px;
     max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 5px;
-    margin-bottom: 20px;
+    gap: 0px;
+    margin-bottom: 0px;
 
     .theme-card {
       width: calc((100% - 15px) / 3);
@@ -23,7 +23,7 @@
 
       &:nth-child(1) {
         width: 100%;
-        height: 200px;
+        height: 175px;
       }
 
       &:nth-child(2),
@@ -44,7 +44,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 10px;
+        border-radius: 6px;
       }
 
       h3 {
@@ -53,14 +53,16 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
+        text-shadow: 0px 0px 2px black !important;
         font-size: 24px;
         font-weight: bold;
         text-align: center;
         width: 80%;
       }
 
-      &.selected {
-        border: 2px solid #4caf50;
+      &.theme-card.selected {
+        border: 5px solid #4caf50;
+        border-radius: 10px;
       }
     }
   }
@@ -70,7 +72,7 @@
     color: white;
     padding: 15px 30px;
     border: none;
-    border-radius: 10px;
+    border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
 

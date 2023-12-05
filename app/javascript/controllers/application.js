@@ -7,4 +7,7 @@ application.debug = false
 window.Stimulus   = application
 
 export { application }
-//= require themes
+//= require theme_selection
+//= require jquery
+//= require jquery_ujs
+//= require_tree .

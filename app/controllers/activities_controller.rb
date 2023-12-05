@@ -7,24 +7,23 @@ class ActivitiesController < ApplicationController
 
     if params[:date_begin].present?
       @activities = @activities.where('date_begin >= ?', params[:date_begin].to_date)
-
     end
 
-
     if params[:themes].present?
+
       @activities = @activities.where(category: params[:themes])
     end
 
-
-      @markers = @activities.geocoded.map do |activity|
-        {
-          lat: activity.latitude,
-          lng: activity.longitude,
-          info_window_html: render_to_string(partial: "info_window", locals: { activity: activity }),
-          marker_html: render_to_string(partial: "marker", locals: { activity: activity })
-        }
-      end
+    @markers = @activities.geocoded.map do |activity|
+      {
+        lat: activity.latitude,
+        lng: activity.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: { activity: activity }),
+        marker_html: render_to_string(partial: "marker", locals: { activity: activity })
+      }
+    end
   end
+
 
   def show
     # @theme_activities = ThemeActivity.where(activity_id: @activity.id)
