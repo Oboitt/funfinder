@@ -10,18 +10,43 @@
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-    <div id="carouselExampleIndicators" class="carousel slide">
+  <div class="glide" data-controller="slide-card">
+    <div class="glide__track" data-glide-el="track">
+      <ul class="glide__slides">
+        <div class="glide__slide card-slide">
+        </div>
+        <% @activities.each_with_index do |activity, index| %>
+          <% if activity.photo.attached? %>
+            <li class="glide__slide"><%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %><h5><%= activity.name %></h5>
+          <p><%= activity.brand %></p>
+          <p><%= activity.date_begin %></p></li>
+          <% else %>
+            <li class="glide__slide"><img src="/app/assets/images/funfinder.jpg" alt="Logo"><h5><%= activity.name %></h5>
+          <p><%= activity.brand %></p>
+          <p><%= activity.date_begin %></p><li>
+          <% end %>
+        <% end %>
+      </ul>
+    </div>
+    <div data-glide-el="controls">
+  <button data-glide-dir="<">Start</button>
+  <button data-glide-dir=">">End</button>
+</div>
+  </div>
+</div>
+
+
+
+<!--
+<div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
-      <% @activities.each_with_index do |activity, index| %>
+<% @activities.each_with_index do |activity, index| %>
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=index%>" class="<%= "active" if index.zero? %>" aria-current="true" aria-label="Slide 1"></button>
       <% end %>
       <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> %>
     </div>
     <div class="carousel-inner">
-      <!-- Carousel Item 1 -->
-
-
       <% @activities.each_with_index do |activity, index| %>
         <div class="carousel-item <%= "active" if index.zero? %>">
           <% if activity.photo.attached? %>
@@ -38,7 +63,7 @@
             <%# </div> %>
           </div>
       <% end %>
-      <!-- Carousel Item 2 -->
+
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -48,6 +73,4 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-    </div>
-  </div>
-</div>
+    </div>-->
