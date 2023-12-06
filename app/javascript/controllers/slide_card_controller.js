@@ -20,4 +20,10 @@ export default class extends Controller {
   previous() {
     this.glide.go("<");
   }
+
+  selectMarker() {
+    const id = event.currentTarget.dataset.activityId
+    const marker = document.querySelector(`#category-${id}`)
+    marker.parentElement.click()
+  }
 }
