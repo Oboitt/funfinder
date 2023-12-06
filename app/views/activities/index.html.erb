@@ -18,7 +18,7 @@
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         <% @activities.each_with_index do |activity, index| %>
-          <li class="glide__slide card-slide">
+          <li class="glide__slide card-slide" data-action="click->slide-card#selectMarker" data-activity-id="<%=activity.id%>">
             <% if activity.photo.attached? %>
               <%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %>
             <% else %>
