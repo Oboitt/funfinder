@@ -1,10 +1,10 @@
-<div class="container-index like">
 <div class="thecontainer like">
-
   <div class="p-4">
-  <h1>Favoris</h1>
-  <h4>Bonjour <b><%= current_user.first_name %></b>,</h4>
-  <h4>Voici vos activités à venir</h4>
+    <h1>Favoris</h1>
+    <h4>Bonjour <b><%= current_user.first_name %></b>,</h4>
+  </div>
+  <div class="d-flex justify-content-start">
+    <h4>Voici vos activités à venir</h4>
   </div>
   <% if @liked_activities.present? %>
   <% @liked_activities.each do |like| %>
@@ -20,12 +20,10 @@
           <span><b><%= like.name %></b></span>
         </div>
         <p><%= distance_of_time_in_words(Time.now, like.date_begin, include_seconds: true, about: false, locale: :fr) %> avant le début de l'évènement </p>
-        <button href="#" type="button" class="btn btn-outline-primary "><i class="fa-solid fa-share-nodes"></i>  Partager</button>
-        </div>
+        <button href="#" type="button" class="btn btn-outline-primary btn-sm"><i class="fa-solid fa-share-nodes"></i>  Partager</button>
+      </div>
         <div class="heart-icon"><i class="fa-solid fa-heart"></i></div>
-
     </div>
-
   <% end %>
 <% else %>
   <%= link_to "Choisissez votre première activité", activities_path %>
@@ -53,5 +51,4 @@
     </div>
   <% end %>
 <% end %>
-</div>
 </div>
