@@ -32,19 +32,19 @@ export default class extends Controller {
     // Focus on the user's location and propose a route
     this.focusOnUserLocation();
 
-    // Assurez-vous que la variable markers est correctement définie ici
-    // this.createMarkers(this.markersValue);
+    // // Assurez-vous que la variable markers est correctement définie ici
+    // // this.createMarkers(this.markersValue);
 
-    // Écoutez l'événement personnalisé activityCardClicked
-    document.addEventListener('activityCardClicked', (event) => {
-      const markerId = event.detail.markerId;
-      const marker = this.markersValue.find((marker) => marker.id === markerId);
+    // // Écoutez l'événement personnalisé activityCardClicked
+    // document.addEventListener('activityCardClicked', (event) => {
+    //   const markerId = event.detail.markerId;
+    //   const marker = this.markersValue.find((marker) => marker.id === markerId);
 
-      if (marker) {
-        // Simulez un clic sur le marqueur
-        marker.element.click();
-      }
-    });
+    //   if (marker) {
+    //     // Simulez un clic sur le marqueur
+    //     marker.element.click();
+    //   }
+    // });
   }
 
   addMarkersToMap() {
