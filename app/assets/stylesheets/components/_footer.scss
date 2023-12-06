@@ -1,7 +1,7 @@
 
 // Footer styles
 footer {
-  background-color: #000000; // Noir
+  background-color: rgb(255, 255, 255); // Noir
   color: white;
   padding: 0.5em;
   height: 60px;
@@ -20,11 +20,12 @@ footer {
     li {
       a {
         text-decoration: none;
-        color: white;
+        color: rgb(208, 208, 208);
 
-        &:hover {
-          color: #FA8460;
+        &.active {
+          color: #FA8460; // Remplacez cette couleur par celle que vous souhaitez
         }
+
       }
     }
   }
