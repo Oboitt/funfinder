@@ -2,28 +2,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
+  padding: 5px;
 
   .theme-filter {
-    width: 400px;
-    max-width: 800px;
+    width: 100%;
+    max-width: 95vw;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 0px;
-    margin-bottom: 0px;
+    gap: 1vw; /* Espacement réduit entre les thèmes */
 
     .theme-card {
-      width: calc((100% - 15px) / 3);
-      margin-bottom: 15px;
+      width: calc((100% - 4vw) / 3); /* Largeur des cartes augmentée */
+      margin-bottom: 2vw;
       position: relative;
       cursor: pointer;
       overflow: hidden;
+      img {
+        // Styles par défaut pour les images non sélectionnées
+        filter: grayscale(100%);
+        transition: filter 0.0s ease; // Ajoute une transition pour une animation en douceur
+      }
 
       &:nth-child(1) {
         width: 100%;
-        height: 175px;
+        height: 48vw;
       }
 
       &:nth-child(2),
@@ -32,9 +36,8 @@
       &:nth-child(5),
       &:nth-child(6),
       &:nth-child(7) {
-        width: calc((100% - 15px) / 2);
-        height: 150px;
-
+        width: calc((100% - 4vw) / 2); /* Largeur des cartes augmentée */
+        height: 38vw;
       }
 
       &:hover {
@@ -45,7 +48,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        border-radius: 6px;
+        border-radius: 2vw;
       }
 
       h3 {
@@ -54,18 +57,17 @@
         left: 50%;
         transform: translate(-50%, -50%);
         color: white;
-        text-shadow: 0px 0px 2px black !important;
-        font-size: 24px;
+        text-shadow: 0px 0px 4px black !important;
+        font-size: 4vw;
         font-weight: bold;
         text-align: center;
         width: 80%;
       }
 
       &.theme-card.selected {
-        // border: 2px solid #fa846084;
-        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-        border-radius: 10px;
-
+        img {
+          filter: none; // Réinitialise le filtre pour montrer l'image en couleur
+        }
       }
     }
   }
@@ -73,23 +75,14 @@
   .validate-button {
     background-color: #FA8460;
     color: white;
-    padding: 15px 30px;
+    padding: 4vw 8vw;
     border: none;
-    border-radius: 5px;
+    border-radius: 2vw;
     cursor: pointer;
-    font-size: 18px;
-
+    font-size: 4vw;
+    letter-spacing: 3px;
     &:hover {
       background-color: #f75828;
     }
   }
-}
-
-.btn{
-  transition: all 0ms;
-}
-
-.btn:hover{
-  color: white;
-  transition: all 0ms;
 }
