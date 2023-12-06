@@ -18,10 +18,10 @@ export default class extends Controller {
     });
 
     // Add markers to the map
-    this.#addMarkersToMap();
+    this.addMarkersToMap();
 
     // Fit the map to the markers
-    this.#fitMapToMarkers();
+    this.fitMapToMarkers();
 
     // Add geocoder control for searching places
     this.map.addControl(new MapboxGeocoder({
@@ -30,12 +30,15 @@ export default class extends Controller {
     }));
 
     // Focus on the user's location and propose a route
-    this.#focusOnUserLocation();
+    this.focusOnUserLocation();
 
-     // Écoutez l'événement personnalisé activityCardClicked
-     document.addEventListener('activityCardClicked', (event) => {
+    // Assurez-vous que la variable markers est correctement définie ici
+    this.createMarkers(this.markersValue);
+
+    // Écoutez l'événement personnalisé activityCardClicked
+    document.addEventListener('activityCardClicked', (event) => {
       const markerId = event.detail.markerId;
-      const marker = markers.find((marker) => marker.id === markerId);
+      const marker = this.markersValue.find((marker) => marker.id === markerId);
 
       if (marker) {
         // Simulez un clic sur le marqueur
@@ -44,7 +47,8 @@ export default class extends Controller {
     });
   }
 
-  #addMarkersToMap() {
+  addMarkersToMap() {
+
     this.markersValue.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.info_window_html);
       const customMarker = document.createElement("div");
@@ -56,13 +60,13 @@ export default class extends Controller {
     });
   }
 
-  #fitMapToMarkers() {
+  fitMapToMarkers() {
     const bounds = new mapboxgl.LngLatBounds();
     this.markersValue.forEach(marker => bounds.extend([marker.lng, marker.lat]));
     this.map.fitBounds(bounds, { padding: 70, maxZoom: 15, duration: 0 });
   }
 
-  #focusOnUserLocation() {
+  focusOnUserLocation() {
     if (navigator.geolocation) {
       // Get user's current location
       navigator.geolocation.getCurrentPosition(
