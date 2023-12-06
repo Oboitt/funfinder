@@ -1,8 +1,8 @@
 <footer class="fixed-bottom">
   <ul>
-    <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
-    <li><a href="/activities"><i class="fa-solid fa-location-dot"></i></a></li>
-    <li><a href="/likes"><i class="fa-solid fa-heart"></i></a></li>
-    <li><a href="#"><i class="fa-solid fa-user-group"></i></a></li>
+    <li><a href="/" class="<%= 'active' if controller_name == 'pages' && action_name == 'home' %>"><i class="fa-solid fa-house"></i></a></li>
+    <li><a href="/activities" class="<%= 'active' if controller_name == 'activities' && action_name == 'index' %>"><i class="fa-solid fa-location-dot"></i></a></li>
+    <li><a href="/likes" class="<%= 'active' if controller_name == 'likes' && action_name == 'index' %>"><i class="fa-solid fa-heart"></i></a></li>
+    <li><a href="#" class="<%= 'active' if controller_name == 'your_controller' && action_name == 'your_action' %>"><i class="fa-solid fa-user-group"></i></a></li>
   </ul>
 </footer>
