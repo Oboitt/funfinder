@@ -34,6 +34,7 @@
       &:nth-child(7) {
         width: calc((100% - 15px) / 2);
         height: 150px;
+
       }
 
       &:hover {
@@ -61,8 +62,10 @@
       }
 
       &.theme-card.selected {
-        border: 5px solid #4caf50;
+        // border: 2px solid #fa846084;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
         border-radius: 10px;
+
       }
     }
   }
