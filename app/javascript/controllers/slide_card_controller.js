@@ -10,7 +10,7 @@ export default class extends Controller {
 
   initGlide() {
     new Glide(this.element, {
-      type:"carousel", focusAt: "center", perView: 3, gap: 20, autoplay: 3000
+      type:"carousel", focusAt: "center", perView: 3, gap: 20
     }).mount();
   }
   next() {
