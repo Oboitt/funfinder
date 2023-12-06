@@ -31,6 +31,17 @@ export default class extends Controller {
 
     // Focus on the user's location and propose a route
     this.#focusOnUserLocation();
+
+     // Écoutez l'événement personnalisé activityCardClicked
+     document.addEventListener('activityCardClicked', (event) => {
+      const markerId = event.detail.markerId;
+      const marker = markers.find((marker) => marker.id === markerId);
+
+      if (marker) {
+        // Simulez un clic sur le marqueur
+        marker.element.click();
+      }
+    });
   }
 
   #addMarkersToMap() {

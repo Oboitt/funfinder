@@ -15,64 +15,51 @@
   <div class="glide" data-controller="slide-card">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
-        <div class="glide__slide card-slide">
-        </div>
         <% @activities.each_with_index do |activity, index| %>
-          <% if activity.photo.attached? %>
-            <li class="glide__slide"><%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %><h5><%= activity.name %></h5>
-          <p><%= activity.brand %></p>
-          <p><%= activity.date_begin %></p></li>
-          <% else %>
-            <li class="glide__slide"><img src="/app/assets/images/funfinder.jpg" alt="Logo"><h5><%= activity.name %></h5>
-          <p><%= activity.brand %></p>
-          <p><%= activity.date_begin %></p><li>
-          <% end %>
+          <li class="glide__slide card-slide" data-controller="activity-map" data-activity-map-marker-id="<%= activity.id %>" data-action="click->activity-map#click">
+            <% if activity.photo.attached? %>
+              <%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %>
+            <% else %>
+              <img src="/app/assets/images/funfinder.jpg" alt="Logo">
+            <% end %>
+            <h5><%= activity.name %></h5>
+            <p><%= activity.brand %></p>
+            <p><%= activity.date_begin %></p>
+          </li>
         <% end %>
       </ul>
     </div>
     <div data-glide-el="controls">
-  <button data-glide-dir="<">Start</button>
-  <button data-glide-dir=">">End</button>
-</div>
+      <button data-glide-dir="<">Start</button>
+      <button data-glide-dir=">">End</button>
+    </div>
   </div>
 </div>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Ajoutez un gestionnaire d'événements de clic aux cartes d'activités
+  const activityCards = document.querySelectorAll('.glide__slide');
+  activityCards.forEach(card => {
+    card.addEventListener('click', function () {
+      // Obtenez l'identifiant du marqueur associé à la carte d'activité
+      const markerId = card.getAttribute('data-marker-id');
 
-<!--
-<div id="carouselExampleIndicators" class="carousel slide">
-    <div class="carousel-indicators">
-<% @activities.each_with_index do |activity, index| %>
-        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<%=index%>" class="<%= "active" if index.zero? %>" aria-current="true" aria-label="Slide 1"></button>
-      <% end %>
-      <%# <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button> %>
-    </div>
-    <div class="carousel-inner">
-      <% @activities.each_with_index do |activity, index| %>
-        <div class="carousel-item <%= "active" if index.zero? %>">
-          <% if activity.photo.attached? %>
-            <%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %>
-          <% else %>
-            <img src="/app/assets/images/funfinder.jpg" alt="Logo">
-          <% end %>
-        </div>
-          <div class="carousel-caption d-none d-md-block">
-             <%# <div class="overlay">
-              <h5><%= activity.name </h5>
-              <%# <p><%= activity.brand </p>
-              <%# <p><%= activity.date_begin </p>
-            <%# </div> %>
-          </div>
-      <% end %>
+      // Utilisez l'API Mapbox pour effectuer l'action souhaitée, par exemple, centrer la carte sur le marqueur
+      const mapController = document.querySelector('[data-controller="map"]');
+      const map = mapController && mapController.__x ? mapController.__x.getControllerForElementAndIdentifier(mapController, 'map') : null;
 
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-    </div>-->
+      if (map) {
+        // Utilisez l'identifiant pour trouver le marqueur correspondant et effectuez l'action souhaitée
+        const marker = map.markers.find(marker => marker.id === markerId);
+
+        if (marker) {
+          // Exemple : Centrez la carte sur le marqueur
+          map.map.panTo(marker.getLngLat());
+        }
+      }
+    });
+  });
+});
+</script>
