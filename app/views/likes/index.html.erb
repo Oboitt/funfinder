@@ -1,6 +1,7 @@
-<div class="thecontainer">
-<div class="container">
-  <div class="">
+<div class="container-index like">
+<div class="thecontainer like">
+
+  <div class="p-4">
   <h1>Favoris</h1>
   <h4>Bonjour <b><%= current_user.first_name %></b>,</h4>
   <h4>Voici vos activités à venir</h4>
@@ -15,7 +16,7 @@
       <% end %>
 
       <div class="card-product-infos d-flex justify-content-start flex-column mb-3 text-start ">
-        <div class="card-header">
+        <div class="card-header pt-3">
           <span><b><%= like.name %></b></span>
         </div>
         <p><%= distance_of_time_in_words(Time.now, like.date_begin, include_seconds: true, about: false, locale: :fr) %> avant le début de l'évènement </p>
