@@ -16,7 +16,7 @@
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
         <% @activities.each_with_index do |activity, index| %>
-          <li class="glide__slide card-slide" data-controller="activity-map" data-activity-map-marker-id="<%= activity.id %>" data-action="click->activity-map#click">
+          <li class="glide__slide card-slide">
             <% if activity.photo.attached? %>
               <%= cl_image_tag activity.photo.key, class: "d-block w-100 img", alt: activity.name %>
             <% else %>
@@ -36,31 +36,3 @@
     </div>
   </div>
 </div>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Ajoutez un gestionnaire d'événements de clic aux cartes d'activités
-  const activityCards = document.querySelectorAll('.glide__slide');
-  activityCards.forEach(card => {
-    card.addEventListener('click', function () {
-      // Obtenez l'identifiant du marqueur associé à la carte d'activité
-      const markerId = card.getAttribute('data-marker-id');
-
-      // Utilisez l'API Mapbox pour effectuer l'action souhaitée, par exemple, centrer la carte sur le marqueur
-      const mapController = document.querySelector('[data-controller="map"]');
-      const map = mapController && mapController.__x ? mapController.__x.getControllerForElementAndIdentifier(mapController, 'map') : null;
-
-      if (map) {
-        // Utilisez l'identifiant pour trouver le marqueur correspondant et effectuez l'action souhaitée
-        const marker = map.markers.find(marker => marker.id === markerId);
-
-        if (marker) {
-          // Exemple : Centrez la carte sur le marqueur
-          map.map.panTo(marker.getLngLat());
-        }
-      }
-    });
-  });
-});
-</script>
