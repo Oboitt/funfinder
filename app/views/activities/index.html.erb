@@ -1,8 +1,10 @@
 <div class="container bg-white">
   <div class="back">
-    <i class="fa-solid fa-arrow-right fa-rotate-180"><%= link_to "", themes_index_path(params: params[:themes]) %></i>
+  <!--<%= link_to "back", themes_index_path(params: params[:themes]) %></i><i class="fa-solid fa-arrow-right fa-rotate-180"></i>-->
+  <%= link_to (themes_index_path(params: params[:themes])) do %>
+    <i class="fa-solid fa-arrow-right fa-rotate-180"></i>
+  <% end %>
   </div>
-
 
   <div class="mapslide">
     <h1>Les Activités</h1>
