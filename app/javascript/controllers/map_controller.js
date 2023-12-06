@@ -33,7 +33,7 @@ export default class extends Controller {
     this.focusOnUserLocation();
 
     // Assurez-vous que la variable markers est correctement définie ici
-    this.createMarkers(this.markersValue);
+    // this.createMarkers(this.markersValue);
 
     // Écoutez l'événement personnalisé activityCardClicked
     document.addEventListener('activityCardClicked', (event) => {

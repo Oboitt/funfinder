@@ -1,6 +1,7 @@
 .carousel-slide {
   h4{
     letter-spacing: 4px;
+    text-shadow: 1px 0px 7px black !important;
   }
   p{
   color: white !important;
@@ -26,7 +27,7 @@
 }
 
 .carousel-control-prev, .carousel-control-next {
-  top: 220px;
+  top: 60px;
 }
 
 @media screen and (max-width: 760px){
