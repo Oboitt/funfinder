@@ -1,0 +1,9 @@
+meta_product_name: "FunFinder"
+
+meta_title: "Funfinder – trouve du fun autour de toi"
+
+meta_description: "Avec cette application géolocalisée spécial fun, tu peux trouver des activités et des évènements à un endroit et une date donnée"
+
+meta_image: "/app/assets/images/cover.png" # should exist in `app/assets/images/`
+
+twitter_account: "@product_twitter_account" # required for Twitter Cards
