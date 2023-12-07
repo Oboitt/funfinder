@@ -1,13 +1,17 @@
 <div class="thecontainer show">
-  <div class="back justify-content-between">
-    <div class="d-flex justify-content-center ">
-      <a href="/activities"><i class="fa-solid fa-arrow-right fa-rotate-180"></i></a>
-      <div class="d-flex justify-content-center flex-column">
-      <h1><%= @activity.name  %></h1>
+  <div class="m-5 back">
+    <div class="d-flex flex-row">
+      <a href="/activities" class="block mt-3"><i class="fa-solid fa-arrow-right fa-rotate-180"></i></a>
+
+    </div>
+    <div class=" ">
+
+
+      <h1 class="mb-3"><%= @activity.name.upcase  %></h1>
       <h2><%= @activity.brand %></h2>
+
     </div>
-    </div>
-    <div class="">
+    <div class="card-show-background">
       <div class="d-flex justify-content-center rounded-5">
         <% if @activity.photo.attached? %>
           <%= cl_image_tag @activity.photo.key,  crop: :fill, class: "img-activity" %>
@@ -15,28 +19,39 @@
           <img src="" alt="No image" style="max-width: 100%; max-height: 200px;">
         <% end %>
       </div>
-      <div class=" p-2">
-        <h5>Description</h5>
-        <p><%= @activity.content %></p>
-      </div>
-      <div class="  back d-flex justify-content-around">
-        <div>
-          <h5> Adresse</h5>
-          <p><%= @activity.address %></p>
+      <div class="border-show mt-3 rounded-card">
+
+        <div class=" p-2 mt-3   ">
+          <h5>✏️DESCRIPTION</h5>
+          <p><%= @activity.content %></p>
         </div>
-        <div>
-          <h5> Date</h5>
-            <% if @activity.date_begin?%>
-            <p><%= @activity.date_begin.to_date.strftime('%d-%b-%Y') %></p>
-          <% else %>
-            <p><%= @activity.date_begin = Date.today %></p>
-          <% end %>
+        <div class="  back d-flex justify-content-center ">
+          <div class="me-2 mt-3 rounded-card  w-100 ">
+            <h5> 📍ADRESSE</h5>
+            <p><%= @activity.address %></p>
+          </div>
+          <div class="ms-2 mt-3 rounded-card  w-100 ">
+            <h5> 🗓️ DATE</h5>
+              <% if @activity.date_begin?%>
+              <p><%= @activity.date_begin.to_date.strftime('%d-%b-%Y') %></p>
+            <% else %>
+              <p><%= @activity.date_begin = Date.today %></p>
+            <% end %>
+          </div>
         </div>
+
+        <%= link_to @activity.website, class: "link-yellow"  do%>
+          Site Web
+
+        <% end %>
+
+
       </div>
+
     </div>
     <div class="d-flex justify-content-center flex-column rounded-5">
-      <%= link_to "Ajouter au favoris", activity_likes_path(@activity), data:{turbo_method: :post}, class: "btn btn-primary " %>
-      <%= link_to "Site Web", @activity.website, class: "btn btn-outline-primary" %>
+      <%= link_to "Ajouter au favoris", activity_likes_path(@activity), data:{turbo_method: :post}, class: "btn btn-primary mt-4 " %>
+
     </div>
   </div>
 </div>
