@@ -57,11 +57,27 @@
 }
 
 
+.webbutton {
+  color: #FA8460;
+    background-color: white;
+    border-color: #FA8460;
+    border-radius: 7px !important;
+    width: 100px;
+    padding: 3px;
+    text-decoration: none;
+}
+
+
+
 .rounded-card{
   border-radius: 7px;
 }
 
 .border-show{
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 
 
@@ -72,6 +88,7 @@
   //background-color: #fff7f7fd;
   border-radius: 7px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  height: 560px;
 }
 
 .link-yellow{

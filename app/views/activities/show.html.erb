@@ -27,7 +27,7 @@
           <h5>✏️ DESCRIPTION</h5>
           <p><%= @activity.content %></p>
         </div>
-        <div class="  back d-flex justify-content-center ">
+        <div class="  back d-flex justify-content-center mb-2 ">
           <div class="me-2 mt-3 rounded-card  w-100 ">
             <h5> 📍ADRESSE</h5>
             <p><%= @activity.address %></p>
@@ -42,7 +42,7 @@
           </div>
         </div>
 
-        <%= link_to @activity.website, class: "link-yellow d-flex justify-content-center ms-2 mt-3"  do%>
+        <%= link_to @activity.website, class: "btn-outline-primary webbutton d-flex justify-content-center ms-2 mt-3"  do%>
           Site Web
         <% end %>
 

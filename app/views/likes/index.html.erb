@@ -28,6 +28,7 @@
           <%= link_to activity_path(activity) do %>
             <img src="app/assets/images/funfinder.jpg" alt="No image" style="max-width: 100%; max-height: 200px; rounded-5">
           <% end %>
+
         <% end %>
 
         <div class="card-product-infos">
@@ -55,8 +56,10 @@
           <% end %>
         </div>
       </div>
+
     <% end %>
   <% else %>
+  <%= image_tag "undraw_heartbroken_cble.png", class:"w-50 align-item-center"%><br>
     <%= link_to "Choisissez votre première activité", activities_path %>
   <% end %>
 
