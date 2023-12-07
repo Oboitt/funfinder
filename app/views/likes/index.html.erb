@@ -2,7 +2,7 @@
   <div class="petit-logo">
       <div class="back">
         <%= link_to (activities_path) do %>
-          <i class="fa-solid fa-arrow-right fa-rotate-180"></i>
+          <i class="fa-solid fa-arrow-right fa-rotate-180  "></i>
         <% end %>
       </div>
       <%=  image_tag "Funfinder_logo.png" %>
@@ -51,7 +51,7 @@
 
         <div class="heart-icon">
           <%= link_to like_path(activity.likes.where(user: current_user).first),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-solid fa-heart p-3"> </i>
+            <i class="fa-solid fa-heart p-3 fs-5 "> </i>
           <% end %>
         </div>
       </div>
@@ -80,7 +80,7 @@
         </div>
         <div class="heart-icon">
           <%= link_to like_path(activity.likes.where(user: current_user).first),data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
-            <i class="fa-solid fa-heart p-3"> </i>
+            <i class="fa-solid fa-heart p-3 "> </i>
           <% end %>
         </div>
       </div>
