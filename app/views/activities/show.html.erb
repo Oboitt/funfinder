@@ -39,11 +39,14 @@
             <% end %>
           </div>
         </div>
-
-        <%= link_to @activity.website, class: "link-yellow"  do%>
+          <%= link_to @activity.website, class: "link-yellow", target: "_blank", rel: "noopener noreferrer" do %>
+            Site Web
+          <% end %>
+        <!--<%= link_to @activity.website, class: "link-yellow"  do%>
           Site Web
 
-        <% end %>
+        <% end %>-->
+
 
 
       </div>
