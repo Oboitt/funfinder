@@ -5,11 +5,8 @@
 
     </div>
     <div class=" ">
-
-
       <h1 class="mb-3"><%= @activity.name.upcase  %></h1>
       <h2><%= @activity.brand %></h2>
-
     </div>
     <div class="card-show-background">
       <div class="d-flex justify-content-center rounded-5">
@@ -40,11 +37,9 @@
           </div>
         </div>
 
-        <%= link_to @activity.website, class: "link-yellow"  do%>
+        <%= link_to @activity.website, class: "link-yellow d-flex justify-content-center ms-2 mt-3"  do%>
           Site Web
-
         <% end %>
-
 
       </div>
 
