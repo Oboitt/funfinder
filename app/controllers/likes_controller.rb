@@ -7,6 +7,8 @@ class LikesController < ApplicationController
       @past_activites = current_user.activities.where("date_end < ?", Date.today).last(5)
     end
 
+
+
     def create
       @activity = Activity.find(params[:activity_id])
       @like = Like.new
@@ -20,8 +22,9 @@ class LikesController < ApplicationController
 
     def destroy
       @like = Like.find(params[:id])
+
       @like.destroy
-      redirect_to activity_likes_path, notice: 'Like supprimé avec succès!', status: :see_other
+      redirect_to like_path, notice: 'Like supprimé avec succès!', status: :see_other
     end
 
 end
