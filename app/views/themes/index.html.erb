@@ -1,34 +1,36 @@
 <div class="container">
-<div data-controller="theme">
-  <%= form_tag(activities_path, method: "get",class: "d-none", data: {theme_target: "form"}) do %>
-    <% @themes.each do |theme| %>
-      <label>
+  <div data-controller="theme">
+    <%= form_tag(activities_path, method: "get",class: "d-none", data: {theme_target: "form"}) do %>
+      <% @themes.each do |theme| %>
+        <label>
 
-        <%= check_box_tag "themes[]", theme.name, params[:themes].present? && params[:themes].include?(theme.id.to_s), data: {id: theme.id}, checked: params[:themes].present? && params[:themes].include?(theme.name) ? true : false %>
-        <%= theme.name %>
-      </label>
+          <%= check_box_tag "themes[]", theme.name, params[:themes].present? && params[:themes].include?(theme.id.to_s), data: {id: theme.id}, checked: params[:themes].present? && params[:themes].include?(theme.name) ? true : false %>
+          <%= theme.name %>
+        </label>
+      <% end %>
+
+      <input type="text" name="date_begin" id="" value=<%= params[:date_begin] %>>
+      <%= submit_tag "Filtrer" %>
     <% end %>
 
-    <input type="text" name="date_begin" id="" value=<%= params[:date_begin] %>>
-    <%= submit_tag "Filtrer" %>
-  <% end %>
+    <div class="mapslide">
+        <h1>THEMES</h1>
+      </div>
+    <div class="page-themes">
+      <div class="theme-filter">
+        <% @themes.each do |theme| %>
+          <div class="theme-card <%= "selected" if params[:themes].present? && params[:themes].include?(theme.name) %>" data-theme-id="<%= theme.id %>" data-theme-name="<%= theme.display_name %>" data-action="click->theme#select">
+            <%= image_tag theme.photo.url, alt: theme.display_name %>
+            <h3><%= theme.display_name %></h3>
+          </div>
+        <% end %>
+      </div>
 
-  <div class="mapslide">
-      <h1>THEMES</h1>
+      <input type="hidden" name="selected_themes" id="selected_themes" value="">
+
+      <button class="validate-button" data-action="click->theme#submit">Valider</button>
     </div>
-  <div class="page-themes">
-    <div class="theme-filter">
-      <% @themes.each do |theme| %>
-        <div class="theme-card <%= "selected" if params[:themes].present? && params[:themes].include?(theme.name) %>" data-theme-id="<%= theme.id %>" data-theme-name="<%= theme.display_name %>" data-action="click->theme#select">
-          <%= image_tag theme.photo.url, alt: theme.display_name %>
-          <h3><%= theme.display_name %></h3>
-        </div>
-      <% end %>
     </div>
-
-    <input type="hidden" name="selected_themes" id="selected_themes" value="">
-
-    <button class="validate-button" data-action="click->theme#submit">Valider</button>
-  </div>
-</div>
+    <div class="clear">
+  <div>
 </div>
