@@ -3,9 +3,10 @@
 footer {
   background-color: rgb(255, 255, 255); // Noir
   color: white;
-  padding: 0.5em;
+  padding-top: 6px;;
   height: 60px;
-  font-size: 25px;
+  font-size: 30px;
+  box-shadow: 7px 7px 7px 7px rgba(205, 205, 205, 0.75);
   // Liste des liens dans le footer
   ul {
     list-style: none;

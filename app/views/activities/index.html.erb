@@ -14,6 +14,7 @@
     data-map-markers-value="<%= @markers.to_json %>"
     data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
+
   <div class="glide" data-controller="slide-card">
     <div class="glide__track" data-glide-el="track">
       <ul class="glide__slides">
@@ -26,7 +27,7 @@
             <% end %>
             <h5><%= activity.name %></h5>
             <p><%= activity.brand %></p>
-            <p><%= activity.date_begin %></p>
+            <p><%= activity.date_begin.strftime("%d %b %Y")%></p>
           </li>
         <% end %>
       </ul>

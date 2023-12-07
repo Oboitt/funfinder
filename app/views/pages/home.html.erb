@@ -1,14 +1,18 @@
 
-  <div class="thecontainer">
+  <div class="container">
+  <div class="d-flex flex-column justify-content-center align-items-center">
     <div class="Flogo">
-    <%=  image_tag "funfinder.jpg" %>
+      <%=  image_tag "funfinder.jpg" %>
     </div>
+
+
     <div class="form_date search-bar ">
       <%= render 'form_date', activity: @activity %>
     </div>
-    <h3>Les dernière activités ajouté :</h3>
 
 
+    <h3>Les dernières activités ajoutées :</h3>
+  </div>
     <div id="carouselExampleIndicators" class="carousel slide carousel-slide" >
       <div class="carousel-indicators">
         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -87,4 +91,5 @@
       <h3>🧩  Choisissez votre thème</h3>
       <h3>🧭  Découvrez les activités dans le coin</h3>
     </div>
+
   </div>
