@@ -1,6 +1,6 @@
 .show{
   h1 {
-  margin-top: 52px;
+
 
   color: #FA8460;
   text-align: center;
@@ -40,6 +40,7 @@
 
   p {
   margin-top: 10px;
+  margin-bottom: 0px;
   color: #000;
   font-size: 13px;
   font-style: normal;
@@ -53,4 +54,27 @@
   object-fit: cover;
   border-radius: 7px;
   }
+}
+
+
+.rounded-card{
+  border-radius: 7px;
+}
+
+.border-show{
+
+
+
+
+}
+
+.card-show-background{
+  //background-color: #fff7f7fd;
+  border-radius: 7px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.link-yellow{
+  color: #FA8460 !important;
+  font-size: 12px;
 }
