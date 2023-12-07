@@ -1,4 +1,4 @@
-
+<div class="container">
 <div data-controller="theme">
   <%= form_tag(activities_path, method: "get",class: "d-none", data: {theme_target: "form"}) do %>
     <% @themes.each do |theme| %>
@@ -28,4 +28,5 @@
 
     <button class="validate-button" data-action="click->theme#submit">Valider</button>
   </div>
+</div>
 </div>
